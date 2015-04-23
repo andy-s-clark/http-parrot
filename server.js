@@ -3,7 +3,8 @@ var listenPort   = process.env.PORT || 3000,
     app          = express(),
     bodyParser   = require('body-parser'),
     multer       = require('multer'),
-    cookieParser = require('cookie-parser');
+    cookieParser = require('cookie-parser'),
+    os           = require('os');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,12 +13,18 @@ app.use(cookieParser());
 
 app.use(function(req, res) {
   res.json({
-    method: req.method,
-    pathname: req.pathname,
-    query: req.query,
-    cookies: req.cookies,
-    headers: req.headers,
-    body: req.body,
+    host: {
+      hostname: os.hostname(),
+      port: listenPort
+    },
+    request: {
+      method: req.method,
+      pathname: req.pathname,
+      query: req.query,
+      cookies: req.cookies,
+      headers: req.headers,
+      body: req.body
+    }
   });
   console.log(req);
 });
