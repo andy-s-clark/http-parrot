@@ -1,4 +1,4 @@
-var listenPort   = 3001,
+var listenPort   = process.env.PORT || 3000,
     express      = require('express'),
     app          = express(),
     bodyParser   = require('body-parser'),
