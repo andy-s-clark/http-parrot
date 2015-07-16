@@ -2,14 +2,14 @@ FROM node:0.12.7-slim
 
 RUN groupadd -r noderole \
     && useradd -r -m -g noderole noderole \
-    && mkdir -p /var/app \
-    && chown noderole:noderole /var/app
+    && mkdir -p /opt/app \
+    && chown noderole:noderole /opt/app
 USER noderole
-WORKDIR /var/app
+WORKDIR /opt/app
 
-COPY package.json README.md /var/app/
-RUN npm install
-COPY . /var/app/
+COPY package.json README.md /opt/app/
+RUN npm install && rm -rf ~/.npm
+COPY . /opt/app/
 
 EXPOSE 3000
 ENTRYPOINT ["npm"]

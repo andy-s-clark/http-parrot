@@ -1,4 +1,6 @@
+.dockerignore
 .gitignore
+.git
 Dockerfile
 node_modules
 .DS_Store
