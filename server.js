@@ -8,7 +8,7 @@ var listenPort   = process.env.PORT || 3000,
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
+app.use(multer().single());
 app.use(cookieParser());
 
 app.use(function(req, res) {
