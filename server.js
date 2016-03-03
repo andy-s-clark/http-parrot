@@ -19,7 +19,8 @@ app.use(function(req, res) {
     },
     request: {
       method: req.method,
-      pathname: req.pathname,
+      url: req.url,
+      path: req.path,
       query: req.query,
       cookies: req.cookies,
       headers: req.headers,
