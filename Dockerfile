@@ -1,4 +1,4 @@
-FROM node:0.12.7-slim
+FROM node:4.3.2-slim
 
 RUN groupadd -r noderole \
     && useradd -r -m -g noderole noderole \
